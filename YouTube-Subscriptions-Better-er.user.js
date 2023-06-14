@@ -78,7 +78,8 @@ function rtnNodeDurationIndicator(){
     // --- Obscure shorts --- 3b. identify shorts and apply style changes
     var ndlstShortsOverlays = document.querySelectorAll('[overlay-style="SHORTS"]');
     for (var i=0; i<ndlstShortsOverlays.length; i++) {
-      var ndOneVideoShort = ndlstShortsOverlays[i].closest('ytd-grid-video-renderer');
+      var ndOneVideoShort = ndlstShortsOverlays[i].closest('ytd-rich-grid-media');
+      if (!ndOneVideoShort) { console.log('YT Subs Better-er problem: YT "shorts" markup may have changed. Skipping iteration #'+i); continue; }
       if (!ndOneVideoShort.classList.contains('hoverfadein')) {
         ndOneVideoShort.className += ' hoverfadein';
       }
@@ -87,7 +88,8 @@ function rtnNodeDurationIndicator(){
     // --- 4. Obscure 'upcoming' videos which can't yet be watched
     var ndlstTimeStatusUpcoming = document.querySelectorAll('[aria-label="Upcoming"]');
     for (var i=0; i<ndlstTimeStatusUpcoming.length; i++) {
-      var ndOneVideoUpcoming = ndlstTimeStatusUpcoming[i].closest('ytd-grid-video-renderer');
+      var ndOneVideoUpcoming = ndlstTimeStatusUpcoming[i].closest('ytd-rich-grid-media');
+      if (!ndOneVideoUpcoming) { console.log('YT Subs Better-er problem: YT "upcoming" vids markup may have changed. Skipping iteration #'+i); continue; }
       if (!ndOneVideoUpcoming.classList.contains('hoverfadein')) {
         ndOneVideoUpcoming.className += ' hoverfadein';
       }
