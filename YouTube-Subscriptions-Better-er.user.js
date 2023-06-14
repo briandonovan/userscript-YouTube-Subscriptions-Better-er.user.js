@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube Subscriptions Better-er
 // @namespace    http://www.eatdirtshit.rocks/
-// @version      0.03b
+// @version      0.04
 // @downloadURL  http://eatdirtshit.rocks/userscripts/YouTube-Subscriptions-Better-er.user.js
 // @description  Adds some helpful functionality to the YouTube Subscriptions page.
 // @author       Brian Donovan
