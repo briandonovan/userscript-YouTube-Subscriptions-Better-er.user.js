@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         YouTube Subscriptions Better-er
 // @namespace    http://www.eatdirtshit.rocks/
-// @version      0.04
+// @version      0.05
 // @downloadURL  http://eatdirtshit.rocks/userscripts/YouTube-Subscriptions-Better-er.user.js
 // @description  Adds some helpful functionality to the YouTube Subscriptions page.
 // @author       Brian Donovan
 // @match        https://www.youtube.com/feed/subscriptions
+// @match        https://www.youtube.com/*/videos
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
@@ -82,6 +83,17 @@ function rtnNodeDurationIndicator(){
       if (!ndOneVideoShort) { console.log('YT Subs Better-er problem: YT "shorts" markup may have changed. Skipping iteration #'+i); continue; }
       if (!ndOneVideoShort.classList.contains('hoverfadein')) {
         ndOneVideoShort.className += ' hoverfadein';
+      }
+    }
+
+    // --- Remove shorts block --- 3c. [YT has begun inserting a block of shorts into subscriptions page]s
+    var ndlstShortsContainerTitle = document.querySelectorAll('span#title');
+    for(var i=0; i<ndlstShortsContainerTitle.length; i++){
+      if(ndlstShortsContainerTitle[i].innerText.toLowerCase().includes('shorts')){
+        var ndShortsPanel = ndlstShortsContainerTitle[i].closest('ytd-rich-shelf-renderer');
+        if(ndShortsPanel){
+          ndShortsPanel.remove();
+        }
       }
     }
 
