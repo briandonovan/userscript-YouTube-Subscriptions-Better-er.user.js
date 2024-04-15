@@ -86,7 +86,7 @@ function rtnNodeDurationIndicator(){
       }
     }
 
-    // --- Remove shorts block --- 3c. [YT has begun inserting a block of shorts into subscriptions page]s
+    // --- Remove shorts block --- 3c. [YT has begun inserting a block of shorts into subscriptions page]
     var ndlstShortsContainerTitle = document.querySelectorAll('span#title');
     for(var i=0; i<ndlstShortsContainerTitle.length; i++){
       if(ndlstShortsContainerTitle[i].innerText.toLowerCase().includes('shorts')){
