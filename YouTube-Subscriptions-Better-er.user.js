@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube Subscriptions Better-er
 // @namespace    http://www.eatdirtshit.rocks/
-// @version      0.05
+// @version      0.06
 // @downloadURL  http://eatdirtshit.rocks/userscripts/YouTube-Subscriptions-Better-er.user.js
 // @description  Adds some helpful functionality to the YouTube Subscriptions page.
 // @author       Brian Donovan
@@ -108,7 +108,8 @@ function rtnNodeDurationIndicator(){
     }
 
     // --- 5. Duration indicators --- 5c figure out the duration of each video and insert their duration indicator
-    var ndlstVideoDurations = document.querySelectorAll('ytd-thumbnail-overlay-time-status-renderer');
+    //var ndlstVideoDurations = document.querySelectorAll('ytd-thumbnail-overlay-time-status-renderer');
+    var ndlstVideoDurations = document.querySelectorAll('span#text.ytd-thumbnail-overlay-time-status-renderer');
     for (var i=0; i<ndlstVideoDurations.length; i++) {
       var ndThisVideoOverlays = ndlstVideoDurations[i].closest('#overlays');
       if (ndThisVideoOverlays.querySelectorAll('.vid-duration-shell').length > 0) {
@@ -120,7 +121,7 @@ function rtnNodeDurationIndicator(){
            !( arrDurationParts.every( (strPart) => !isNaN(strPart) ) )
          ){
         // Something not right (not a traditional style video duration)
-        continue;
+         console.log('YT Subs Better-er problem: YT vid duration markup or text may have changed. Skipping iteration #'+i); continue;
       }
       // -----------------------------------------------------------------------
       if (arrDurationParts.length === 2) {
