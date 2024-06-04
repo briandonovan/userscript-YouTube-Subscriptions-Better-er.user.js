@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube Subscriptions Better-er
 // @namespace    http://www.eatdirtshit.rocks/
-// @version      0.06
+// @version      0.06b
 // @downloadURL  http://eatdirtshit.rocks/userscripts/YouTube-Subscriptions-Better-er.user.js
 // @description  Adds some helpful functionality to the YouTube Subscriptions page.
 // @author       Brian Donovan
@@ -32,12 +32,13 @@ var strVidDurationShellClassDef = `.vid-duration-shell {
   left: 0px;
 }`;
 var strVidDurationBarHolderClassDef = `.vid-duration-bar-holder {
-  background-color: rgb(0,0,0,0.75);
-  width: 80%;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 70%;
   height: 100%;
   border: 1px solid black;
   border-radius: 2px;
-  margin: 5px auto;
+  margin: 0 auto;
+  margin-right: 20%;
 }`;
 var strVidDurationBarClassDef = `.vid-duration-bar {
   background-color: red;
